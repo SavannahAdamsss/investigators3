@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>galvanize</h1>
+        </header>
+        <main>
+        <section>
+            <h2>Students Graduated</h2>
+            <canvas id="myChart"></canvas>
+        </section>
+        </main>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            Chart.scaleService.updateScaleDefaults('linear', {
+                ticks: {
+                    min: 0
+                }
+            });
+            
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["2014", "2015", "2016"],
+                        datasets: [{
+                            // label: "My First dataset",
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: [73, 199, 395],
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: "Number of Students"
+                                }
+                            }],
+                            xAxes: [{
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: "Year"
+                                }
+                            }]
+                        }
+                    }
+                });
+        </script>
+    </body>
+</html>
